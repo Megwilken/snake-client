@@ -1,7 +1,5 @@
 
 const { connect } = require("./client.js");
-
-
-
-console.log("Connection ...");
+console.log("Connecting ...");
 connect();
+

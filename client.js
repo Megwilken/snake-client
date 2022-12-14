@@ -5,21 +5,21 @@ const connect = function() {
     port: 50541,
   });
 
+  conn.setEncoding("utf8");
+
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server!");
+    conn.write("Name: MMW");
+  });
+
   conn.on("data", (data) => {
     console.log("Server says: ", data);
   });
 
-  conn.on("connect", () => {
-    conn.write("Client says hello!");
-  });
-
-  conn.setEncoding("utf8");
-
   return conn;
-
 };
 
 module.exports = {
   connect: connect,
-  conn: this.conn,
 };
+
