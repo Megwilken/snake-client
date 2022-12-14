@@ -1,3 +1,5 @@
+const { MOVE_UP, MOVE_LEFT, MOVE_DOWN, MOVE_RIGHT, MESS, MESSG, MESSH, MESSY, NAME  } = require("./constants");
+
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -15,28 +17,26 @@ const handleUserInput = function(key) {
     process.exit();
   }
   if (key === 'w') {
-    connection.write("Move: up");
+    connection.write(MOVE_UP);
   }
   if (key === 'a') {
-    connection.write("Move: left");
+    connection.write(MOVE_LEFT);
   }
   if (key === 's') {
-    connection.write("Move: down");
+    connection.write(MOVE_DOWN);
   }
   if (key === 'd') {
-    connection.write("Move: right");
+    connection.write(MOVE_RIGHT);
   }
   if (key === 'g') {
-    connection.write("Say: good job!");
+    connection.write(MESS + MESSG);
   }
   if (key === 'h') {
-    connection.write("Say: have you done this before?!");
+    connection.write(MESS + MESSH);
   }
   if (key === 'y') {
-    console.log("Say: yaaaassssssss");
+    connection.write(MESS + MESSY);
   }
-
-
   return handleUserInput;
 };
 
